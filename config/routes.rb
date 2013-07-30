@@ -1,7 +1,8 @@
 ReservationSystem::Application.routes.draw do
   resources :flights
+  root  'static_pages#home'
   match '/search',  to: 'flights#new',            via: 'get'
-  get "static_pages/home"
+  
   get "static_pages/search"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
