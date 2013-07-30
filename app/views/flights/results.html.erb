@@ -1,24 +1,26 @@
 <ul>
   <h2>Available Flights</h2>
-    <table class="table table-striped">
-      <thead>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Flight Provider</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Time</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each do |result| %>
         <tr>
-          <th>Flight Provider</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Date</th>
+          <td><%= result.travel_agent%></td>
+          <td><%= result.travel_from%></td>
+          <td><%= result.travel_to%></td>
+          <td><%= result.flight_time%></td>
+          <td><%= result.travel_date.to_date.strftime('%A, %B %d, %Y')%></td>
         </tr>
-      </thead>
-      <tbody>
-        <% @results.each do |result| %>
-          <tr>
-            <td><%= result.travel_agent%></td>
-            <td><%= result.travel_from%></td>
-            <td><%= result.travel_to%></td>
-            <td><%= result.travel_date.to_date.strftime('%A, %B %d, %Y')%></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+      <% end %>
+    </tbody>
+  </table>
 </ul>
 
