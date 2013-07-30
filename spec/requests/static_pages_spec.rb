@@ -17,11 +17,5 @@ describe "Static Pages" do
       it { should have_content("Date") }
     end
   end
-
-  describe "Search page" do
-    before { visit '/static_pages/search' }
-
-    it { should have_title('Flight Reservation System | Search')}
-  end
   
 end
