@@ -112,7 +112,7 @@ footer {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 50%;
+  width: 70%;
   padding: 10px;
   margin-bottom: 15px;
   @include box_sizing;
@@ -122,11 +122,21 @@ input {
   height: auto !important;
 }
 
+.form_box {
+  margin-left: 23%;
+  margin-top: 10%;
+}
+
+.submit_form {
+  margin-left: 28%;
+  margin-top: 3%;
+}
+
 #error_explanation {
   color: #f00;
   ul {
     list-style: none;
-    margin: 0 0 18px 0;
+    margin: 0 0 0 0;
   }
 }
 

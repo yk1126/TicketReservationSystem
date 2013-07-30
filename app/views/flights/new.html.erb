@@ -1,22 +1,26 @@
 <% provide(:title, "Search") %>
 <h1>Search for Flights</h1>
 
-<%= form_for(@flight) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<div class = "form_box">
+  <%= form_for(@flight) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label "From" %>
-  <%= f.text_field :travel_from %>
-  
-  <%= f.label "To" %>
-  <%= f.text_field :travel_to %>
-  
-  <%= f.label "Date" %>
-  <%= f.text_field :travel_date %>
+    <%= f.label "From" %>
+    <%= f.text_field :travel_from %>
+    
+    <%= f.label "To" %>
+    <%= f.text_field :travel_to %>
+    
+    <%= f.label "Date" %>
+    <%= f.text_field :travel_date, :placeholder => "Eg: 03-JUL-2013" %>
 
-  <br/>
-  <input type="radio" name="trip_type" value="One way"> One way 
-  <input type="radio" name="trip_type" value="Two way"> Two way 
-  <br/><br/>
-  <%= f.submit "Search", class: "btn btn-large  btn-primary" %>
-  
-<% end %>
+    <br/>
+    <input type="radio" name="trip_type" value="One way"
+    checked="true"> One way   
+    <input type="radio" name="trip_type" value="Two way"> Two way 
+    
+    <div class="submit_form">
+      <%= f.submit "Search", class: "btn btn-large  btn-primary" %>  
+    </div>
+  <% end %>
+</div>
