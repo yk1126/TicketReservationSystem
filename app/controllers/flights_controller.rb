@@ -22,9 +22,12 @@ class FlightsController < ApplicationController
   end
 
   def wait
+     # sleep 5
+     # render 'results'
   end
 
   #############################################################
+
   private
 
     def flight_params
