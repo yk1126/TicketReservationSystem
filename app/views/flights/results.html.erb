@@ -1,26 +1,33 @@
+<% provide(:title, "Results") %>
 <ul>
   <h2>Available Flights</h2>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Flight Provider</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Time</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @results.each do |result| %>
+  <% if @results.count > 0 %>
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td><%= result.travel_agent%></td>
-          <td><%= result.travel_from%></td>
-          <td><%= result.travel_to%></td>
-          <td><%= result.flight_time%></td>
-          <td><%= result.travel_date.to_date.strftime('%A, %B %d, %Y')%></td>
+          <th>Flight Provider</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Time</th>
+          <th>Date</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @results.each do |result| %>
+          <tr>
+            <td><%= result.travel_agent%></td>
+            <td><%= result.travel_from%></td>
+            <td><%= result.travel_to%></td>
+            <td><%= result.flight_time%></td>
+            <td><%= result.travel_date.to_date.strftime('%A, %B %d, %Y')%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="alert alert-error">
+      <p>Sorry. No flights are available...</p>
+    </div>
+  <% end %>
 </ul>
 

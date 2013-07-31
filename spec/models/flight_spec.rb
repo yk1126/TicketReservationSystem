@@ -7,6 +7,8 @@ describe Flight do
   it { should respond_to(:travel_from) }
   it { should respond_to(:travel_to) }
   it { should respond_to(:travel_date) }
+  it { should respond_to(:travel_agent) }
+  it { should respond_to(:flight_time) }
 
   describe "Validations" do
     describe "if all fields are present" do
