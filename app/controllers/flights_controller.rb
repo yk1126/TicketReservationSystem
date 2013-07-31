@@ -19,7 +19,9 @@ class FlightsController < ApplicationController
   end
 
   def results
-    
+  end
+
+  def wait
   end
 
   #############################################################

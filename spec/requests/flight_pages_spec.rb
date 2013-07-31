@@ -36,5 +36,12 @@ describe "Flight pages" do
 
     it { should have_title('Flight Reservation System | Results') }
     it { should have_content('Available Flights') }
-   end
+  end
+
+  describe "Wait page" do
+
+    before { visit wait_path}
+
+    it { should have_content('Search in progress') }
+  end
 end
