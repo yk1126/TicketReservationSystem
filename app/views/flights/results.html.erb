@@ -2,7 +2,7 @@
 <ul>
   <h2>Available Flights</h2>
   <% if @results.count > 0 %>
-    <table class="table table-striped">
+    <table class="table table-striped table-hover">
       <thead>
         <tr>
           <th>Flight Provider</th>
@@ -13,15 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @results.each do |result| %>
-          <tr>
-            <td><%= result.travel_agent%></td>
-            <td><%= result.travel_from%></td>
-            <td><%= result.travel_to%></td>
-            <td><%= result.flight_time%></td>
-            <td><%= result.travel_date.to_date.strftime('%A, %B %d, %Y')%></td>
-          </tr>
-        <% end %>
+        <%= render 'results' %>
       </tbody>
     </table>
   <% else %>

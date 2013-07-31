@@ -1,0 +1,9 @@
+<% @results.each do |result| %>
+  <tr>
+    <td><%= result.travel_agent%></td>
+    <td><%= result.travel_from%></td>
+    <td><%= result.travel_to%></td>
+    <td><%= result.flight_time%></td>
+    <td><%= result.travel_date.to_date.strftime('%A, %B %d, %Y')%></td>
+  </tr>
+<% end %>
