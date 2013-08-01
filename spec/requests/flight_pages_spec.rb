@@ -11,7 +11,7 @@ describe "Flight pages" do
     it { should have_content('To') }
     it { should have_content('Date') }
 
-    describe "should lead to results page when 'Search' button is clicked" do
+    describe "should lead to 'wait' page when 'Search' button is clicked" do
       before do
         fill_in "flight_travel_from",         with: "Bangalore"
         fill_in "flight_travel_to",           with: "Goa"
@@ -19,21 +19,15 @@ describe "Flight pages" do
         click_button "Search"
       end
 
-      it { should have_title('Flight Reservation System | Results') }
-      it { should have_content('Available Flights') }
+      it { should have_title('Flight Reservation System | Wait') }
+      it { should have_content('Search in progress') }
     end
   end
 
   describe "Results page" do
     
-    before { visit search_path }
-    before do
-      fill_in "flight_travel_from",         with: "Bangalore"
-      fill_in "flight_travel_to",           with: "Delhi"
-      fill_in "flight_travel_date",         with: "2013-08-01"
-      click_button "Search"
-    end
-
+    before { visit results_path }
+  
     it { should have_title('Flight Reservation System | Results') }
     it { should have_content('Available Flights') }
   end

@@ -1,4 +1,10 @@
+<% content_for :refresh_tag do %>
+  <meta http-equiv='refresh' content='<%=@redirect_delay%>;url=<%=@redirect_url%>'>
+<% end %>
+
+<% provide(:title, "Wait") %>
 <h4>Search in progress. Please wait ...</h3>
 <div class="progress progress-striped active pagination-centered">
   <div class="bar" style="width: 100%"></div>
 </div>
+<h5><%= @step_count * 20 %>% completed...</h5>
