@@ -8,7 +8,7 @@ class FlightsController < ApplicationController
     @flight = Flight.new(flight_params)
     
     if @flight.valid?
-      @step_count = 1
+      @step_count = 0
       cookies[:step_count] = @step_count
       cookies[:to] = @flight.travel_to
       cookies[:from] = @flight.travel_from
@@ -25,13 +25,7 @@ class FlightsController < ApplicationController
 
   def wait
     @step_count = cookies[:step_count].to_i
-
-   # puts "**********************************************"
-   # puts @step_count
-   # puts @step_count.class
-   # puts "**********************************************"
-
-    if @step_count <= 5
+    if @step_count < 5
       @step_count += 1
       cookies[:step_count] = @step_count
       redirect_after_delay('wait', rand(5), @step_count)
@@ -40,7 +34,7 @@ class FlightsController < ApplicationController
     end
   end
 
-  #############################################################
+  ############################PRIVATE METHODS#################################
 
   private
 
