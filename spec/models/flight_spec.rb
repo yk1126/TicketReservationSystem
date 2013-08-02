@@ -28,11 +28,6 @@ describe Flight do
         before { @flight.travel_date = "" }
         it { should_not be_valid }
       end
-    end
-
-    describe "if travel_date format is incorrect" do
-      before { @flight.travel_date = "01-08-2013"}
-      it { should_not be_valid }
-    end
+    end    
   end
 end

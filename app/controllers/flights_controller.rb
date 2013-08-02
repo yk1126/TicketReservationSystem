@@ -47,6 +47,6 @@ class FlightsController < ApplicationController
       cookies[:step_count] = @step_count
       cookies[:to] = @flight.travel_to
       cookies[:from] = @flight.travel_from
-      cookies[:date] = @flight.travel_date
+      cookies[:date] = @flight.travel_date.to_date.to_s
     end
 end
