@@ -15,7 +15,7 @@ describe "Flight pages" do
       before do
         fill_in "flight_travel_from",         with: "Bangalore"
         fill_in "flight_travel_to",           with: "Goa"
-        fill_in "flight_travel_date",         with: "2013-08-01"
+        fill_in "flight_travel_date",         with: "01-AUG-2013"
         click_button "Search"
       end
       

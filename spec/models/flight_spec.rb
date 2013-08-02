@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Flight do
-  before { @flight = Flight.new(travel_from: "Bangalore", travel_to: "Mumbai", travel_date: "2013-08-01") }
+  before { @flight = Flight.new(travel_from: "Bangalore", travel_to: "Mumbai", travel_date: "01-AUG-2013") }
   subject { @flight }
 
   it { should respond_to(:travel_from) }
@@ -28,6 +28,11 @@ describe Flight do
         before { @flight.travel_date = "" }
         it { should_not be_valid }
       end
-    end    
+    end
+
+    describe "if date format is incorrect" do
+      before { @flight.travel_date = "08012013" }
+      it { should_not be_valid }
+    end
   end
 end

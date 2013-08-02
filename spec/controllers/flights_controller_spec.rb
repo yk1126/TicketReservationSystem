@@ -8,7 +8,7 @@ describe FlightsController do
   it "should redirect 'wait' page if all fields are valid" do
     post :create, flight: { travel_from: "Bangalore",
                             travel_to: "Goa",
-                            travel_date: "2013-08-01" }
+                            travel_date: "01-AUG-2013" }
     expect(response).to redirect_to :action => 'wait'
   end
 
