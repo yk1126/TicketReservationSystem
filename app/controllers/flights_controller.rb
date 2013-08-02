@@ -6,13 +6,10 @@ class FlightsController < ApplicationController
 
   def create
     @flight = Flight.new(flight_params)
-    
+
     if @flight.valid?
       @step_count = 0
-      cookies[:step_count] = @step_count
-      cookies[:to] = @flight.travel_to
-      cookies[:from] = @flight.travel_from
-      cookies[:date] = @flight.travel_date
+      assign_cookies
       redirect_to :action => 'wait'
     else
       render 'new'
@@ -20,7 +17,7 @@ class FlightsController < ApplicationController
   end
 
   def results
-    @results = Flight.where(travel_from: cookies[:from], travel_to: cookies[:to], travel_date: cookies[:date])
+    @results = search_flights
   end
 
   def wait
@@ -30,7 +27,7 @@ class FlightsController < ApplicationController
       cookies[:step_count] = @step_count
       redirect_after_delay('wait', rand(5), @step_count)
     else
-     redirect_to :action => 'results'
+      redirect_to :action => 'results'
     end
   end
 
@@ -40,5 +37,16 @@ class FlightsController < ApplicationController
 
     def flight_params
       params.require(:flight).permit(:travel_from, :travel_to, :travel_date)
+    end
+
+    def search_flights
+      Flight.where(travel_from: cookies[:from], travel_to: cookies[:to], travel_date: cookies[:date])
+    end
+
+    def assign_cookies
+      cookies[:step_count] = @step_count
+      cookies[:to] = @flight.travel_to
+      cookies[:from] = @flight.travel_from
+      cookies[:date] = @flight.travel_date
     end
 end

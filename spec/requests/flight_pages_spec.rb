@@ -18,7 +18,7 @@ describe "Flight pages" do
         fill_in "flight_travel_date",         with: "2013-08-01"
         click_button "Search"
       end
-
+      
       it { should have_title('Flight Reservation System | Wait') }
       it { should have_content('Search in progress') }
     end
@@ -32,10 +32,11 @@ describe "Flight pages" do
     it { should have_content('Available Flights') }
   end
 
+
   describe "Wait page" do
-
-    before { visit wait_path}
-
-    it { should have_content('Search in progress') }
+    before { visit wait_path }
+       
+    it { should have_title('Flight Reservation System | Wait') }
+    it { should have_content('Search in progress')}
   end
 end
